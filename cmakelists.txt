@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.6)
+set(PROJECTNAME "test")
+project(${PROJECTNAME})
+
+file(GLOB_RECURSE cpp_sources src/*.h src/*.cpp)
+file(GLOB shaders shaders/*.*)
+
+set(shaderpath ${PROJECT_SOURCE_DIR}/shaders)
+
+configure_file("${PROJECT_SOURCE_DIR}/shaderpath.txt" "${PROJECT_BINARY_DIR}/shaderpath")
+add_executable(${PROJECTNAME} ${cpp_sources} ${shaders})
